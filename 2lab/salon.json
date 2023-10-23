@@ -1,0 +1,26 @@
+{
+  "BeautySalon": {
+    "Personnel": {
+      "Administrators": [
+        {
+          "id": 1,
+          "FirstName": "Greta",
+          "LastName": "Jankauskyte",
+          "PhoneNumber": "+37069511635",
+          "Email": "unicornbeauty@gmail.com",
+          "ManageSpecId": [1]
+        }
+      ],
+      "Specialists": [
+        {
+          "id": 1,
+          "type": "Hairdresser",
+          "weekends": true,
+          "FirstName": "Jolanta",
+          "LastName": "Petrauskiene",
+          "PhoneNumber": "+37069546958"
+        }
+      ]
+    }
+  }
+}

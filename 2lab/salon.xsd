@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="BeautySalonNamespace"
+		   xmlns:bs="BeautySalonNamespace">
+
+	<xs:element name="BeautySalon" type="bs:BeautySalonType">
+		<xs:keyref name="RefToSpecialist" refer="bs:SpecialistsRestriction">
+			<xs:selector xpath="bs:Services/bs:Service"/>
+			<xs:field xpath="bs:SpecialistId"/>
+		</xs:keyref>
+	</xs:element>
+
+	<xs:complexType name="BeautySalonType">
+		<xs:sequence>
+			<xs:element name="Personnel" type="bs:PersonnelType"/>
+			<xs:element name="Services" type="bs:ServicesType">
+				<xs:unique name="ServicesRestriction">
+					<xs:selector xpath="bs:Service"/>
+					<xs:field xpath="@id"/>
+				</xs:unique>
+			</xs:element>
+			<xs:element name="Reviews" type="bs:ReviewsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PersonnelType">
+		<xs:sequence>
+			<xs:element name="Administrators" type="bs:AdministratorsListType">
+				<xs:unique name="AdministartorsRestriction">
+					<xs:selector xpath="bs:Administrator"/>
+					<xs:field xpath="@id"/>
+				</xs:unique>
+			</xs:element>
+			<xs:element name="Specialists" type="bs:SpecialistsListType">
+				<xs:key name="SpecialistsRestriction">
+					<xs:selector xpath="bs:Specialist"/>
+					<xs:field xpath="@id"/>
+				</xs:key>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AdministratorsListType">
+		<xs:sequence>
+			<xs:element name="Administrator" type="bs:AdministratorType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AdministratorType">
+		<xs:sequence>
+			<xs:element name="FirstName" type="xs:string"/>
+			<xs:element name="LastName" type="xs:string"/>
+			<xs:element name="PhoneNumber" type="bs:PhoneNumberType"/>
+			<xs:element name="Email" type="bs:EmailType" minOccurs="0"/>
+			<xs:element name="ManageSpecId" type="bs:IdList" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="bs:NaturalNumbers"/>
+	</xs:complexType>
+
+	<xs:simpleType name="PhoneNumberType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12"/>
+			<xs:pattern value="[+](370)[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="EmailType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-z0-9._]+(@gmail.com)"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="SpecialistsListType">
+		<xs:sequence>
+			<xs:element name="Specialist" type="bs:SpecialistType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SpecialistTypeRestriction">
+		<xs:complexContent>
+			<xs:restriction base="bs:AdministratorType">
+				<xs:sequence>
+					<xs:element name="FirstName" type="xs:string"/>
+					<xs:element name="LastName" type="xs:string"/>
+					<xs:element name="PhoneNumber" type="bs:PhoneNumberType"/>
+				</xs:sequence>
+				<xs:attribute name="id" type="bs:NaturalNumbers"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="SpecialistType">
+		<xs:complexContent>
+			<xs:extension base="bs:SpecialistTypeRestriction">
+				<xs:attribute name="type" type="xs:string"/>
+				<xs:attribute name="weekends" type="xs:boolean"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ServicesType">
+		<xs:sequence>
+			<xs:element name="Service" type="bs:ServiceType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ServiceType">
+		<xs:sequence>
+			<xs:element name="Title" type="xs:string"/>
+			<xs:element name="SpecialistId" type="bs:NaturalNumbers"/>
+			<xs:element name="Price" type="bs:NumberWithMeasureAttribute"/>
+			<xs:element name="Duration" type="bs:NumberWithMeasureAttribute"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="bs:NaturalNumbers"/>
+	</xs:complexType>
+
+	<xs:simpleType name="IdList">
+		<xs:list itemType="bs:NaturalNumbers"/>
+	</xs:simpleType>
+
+	<xs:complexType name="ReviewsType">
+		<xs:sequence>
+			<xs:element name="Review" type="bs:ReviewType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ReviewType" mixed="true">
+		<xs:sequence>
+			<xs:element name="Date" type="xs:date"/>
+			<xs:element name="Rating" type="bs:StarsType"/>
+			<xs:choice>
+				<xs:element name="Name" type="xs:string"/>
+				<xs:element name="Anonymous" fixed="Vardas nenurodytas"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="NaturalNumbers">
+		<xs:restriction base="xs:integer">
+			<xs:minExclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NumberWithMeasureAttribute">
+		<xs:simpleContent>
+			<xs:extension base="bs:NaturalNumbers">
+				<xs:attribute name="measure" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="StarsType">
+		<xs:simpleContent>
+			<xs:restriction base="bs:NumberWithMeasureAttribute">
+				<xs:enumeration value="1"/>
+				<xs:enumeration value="2"/>
+				<xs:enumeration value="3"/>
+				<xs:enumeration value="4"/>
+				<xs:enumeration value="5"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+
+</xs:schema>

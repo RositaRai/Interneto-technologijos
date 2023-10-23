@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Beauty salon</title>
+    <link rel="stylesheet" href="salon.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper clearfix">
+            <div class="logo">
+                <img src="logo1.png" alt="Unicorn">
+            </div>
+            <div class="h1">
+                <h1>Unicorn beauty salon</h1>
+            </div>
+            <div class="logo">
+                <img src="logo2.png" alt="Unicorn">
+            </div>
+        </div>
+    </header>
+
+    <div class="menu">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Specialists</a></li>
+                <li><a href="#">Galery</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <section>
+            <h2>Prices and registration</h2>
+            <article>
+                <h3>Prices</h3>
+                <p>These presented prices may change depending on the procedure's time and other characteristics.</p>
+                <table>
+                    <tr>
+                        <th rowspan="2">Service</th>
+                        <th colspan="2">Duration</th>
+                        <th colspan="2">Price</th>
+                    </tr>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                    <tr>
+                        <td>Haircut for women</td>
+                        <td>45 min</td>
+                        <td>90 min</td>
+                        <td>10 eur</td>
+                        <td>50 eur</td>
+                    </tr>
+                    <tr>
+                        <td>Hair coloring for women</td>
+                        <td>90 min</td>
+                        <td>240 min</td>
+                        <td>60 eur</td>
+                        <td>300 eur</td>
+                    </tr>
+                    <tr>
+                        <td>Haircut for men</td>
+                        <td>20 min</td>
+                        <td>60 min</td>
+                        <td>8 eur</td>
+                        <td>30 eur</td>
+                    </tr>
+                    <tr>
+                        <td>Beard shaving for men</td>
+                        <td>30 min</td>
+                        <td>90 min</td>
+                        <td>15 eur</td>
+                        <td>50 eur</td>
+                    </tr>
+                </table>
+            </article>
+            <article>
+                <h3>Registration form</h3>
+                <form name="registrationForm">
+                    <fieldset>
+                        <legend>Personal information</legend>
+                        <div class="inputs">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" id="name" required>
+                        </div>
+                        <div class="inputs">
+                            <label for="surname">Surname:</label>
+                            <input type="text" name="surname" id="surname" required>
+                        </div>
+                        <div class="inputs">
+                            <label for="email">Email:</label>
+                            <input autofocus="autofocus" type="email" name="email" id="email" required>
+                        </div>
+                        <div class="inputs">
+                            <label for="phone">Phone number:</label>
+                            <input type="tel" name="phone" id="phone" placeholder="+370 xx xxx xxx"
+                                pattern="[+]370[0-9]{8}" required>
+                        </div>
+                        <div class="inputs">
+                            <label>Gender:</label>
+                            <input type="radio" name="gender" value="male" id="male">
+                            <label for="male">Male</label>
+                            <input type="radio" name="gender" value="female" id="female">
+                            <label for="female">Female</label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Want to get notifications</legend>
+                        <div class="inputs">
+                            <label for="emailCheckbox">Email:</label>
+                            <input type="checkbox" name="emailCheckbox" id="emailCheckbox">
+                        </div>
+                        <div class="inputs">
+                            <label for="phoneCheckbox">Phone:</label>
+                            <input type="checkbox" name="phoneCheckbox" id="phoneCheckbox">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Service registration</legend>
+                        <div class="inputs">
+                            <label for="serviceType">Select service type:</label>
+                            <select id="serviceType" required>
+                                <option value="" disabled selected hidden>Select service</option>
+                                <option value="1">Woman haircut</option>
+                                <option value="2">Men haircut</option>
+                                <option value="3">Woman hair coloring</option>
+                                <option value="4">Beard shaving</option>
+                            </select>
+                        </div>
+                        <div class="inputs">
+                            <label for="date">Select date:</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="inputs">
+                            <label for="time">Select time:</label>
+                            <input type="time" id="time" required>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Confirmation</legend>
+                        <div class="inputs">
+                            <label for="policyCheckbox">Accept our private policy:</label>
+                            <input type="checkbox" name="policyCheckbox" id="policyCheckbox" required><br>
+                        </div>
+                        <input type="submit" value="Submit" id="submit">
+                        <input type="reset" value="Reset" id="reset">
+                    </fieldset>
+                </form>
+            </article>
+        </section>
+    </div>
+
+    <footer>
+        <div class="useful links">
+            <div class="link box">
+                <h4>About Us</h4>
+                <div class="links list">
+                    <ul>
+                        <li><a href="#">Our story</a></li>
+                        <li><a href="#">Terms of use</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="link box">
+                <h4>Contacts</h4>
+                <div class="links list">
+                    <ul>
+                        <li><a href="#">Call us</a></li>
+                        <li><a href="https://mail.google.com/">Email us</a></li>
+                        <li><a href="https://maps.google.com/">Find us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+body {
+    color: rgb(73, 4, 4);
+    font-family: "Times New Roman";
+    background: rgb(255, 227, 232);
+}
+
+h1, h2, h3, h4, a {
+    text-align: center;
+    color: rgb(222, 38, 139);
+}
+
+@media screen and (max-width: 1100px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    img {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    h1 {
+        font-size: 70px;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+header, footer {
+    background: pink;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* klasės selektoriai */
+.logo {
+    box-sizing: border-box;
+    float: left;
+}
+
+.h1{
+    float: left;
+    align-items: center;
+}
+
+.menu {
+    background: #bbe2ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* vaiko selektorius */
+nav > ul {
+    margin: 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    float: left;
+    margin-right: 30px;
+    width: 200px;
+}
+
+nav a {
+    display: block;
+    height: 30px;        
+    line-height: 30px;
+    padding: 0 20px;          
+    color: #ffffff;
+    background: rgb(222, 38, 139);
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: #ffffff;
+    background: pink;
+}
+
+/* klasės selektoriai */
+div[class="link box"] {
+    float: left;
+    width: 200px;
+    
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+/* inherit iš div[class="link box"] */
+div[class="links list"] ul {
+    list-style: none;
+    justify-content: center;
+    padding: 0px;
+
+    margin-block-start: inherit;
+    margin-block-end: inherit;
+}
+
+article {
+    margin-left: 16px;
+}
+
+table {
+    border: 1px solid rgb(73, 4, 4);
+}
+
+th, td {
+    border: 1px solid rgb(73, 4, 4);
+    padding: 15px;
+}
+
+th {
+    background:  #bbe2ef;
+}
+
+/* inherit iš div[class="link box"] */
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    
+    margin-block-start: inherit;
+    margin-block-end: inherit;
+    
+    color: #bbe2ef;
+}
+
+/* įpėdinio selektorius */
+div[class="links list"] a {
+    display: block;
+    height: 30px;              
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(222, 38, 139);
+}
+
+.inputs {
+    padding: 5px;
+}
+
+label {
+    width: 130px;
+    display: inline-block;
+}
+
+/* atributų selektoriai */
+label[for="male"], label[for="female"] {
+    width: 65px;   
+}
+
+/* important */
+label[for="policyCheckbox"] {
+    width: 180px !important;
+}
+
+label[for*="Checkbox"] {
+    width: 65px;
+}
+
+/* žymės selektoriai */
+form {
+    margin-block-end: 15px;
+}
+
+input {
+    border-width: 1px;
+    border-color:rgb(73, 4, 4)
+}
+
+/* id selektorius */
+/* inherit is fieldset */
+input#submit, input#reset {
+    background: #bbe2ef;
+    font-family: inherit;
+    margin-right: 16px;
+    border: 1px solid rgb(73, 4, 4);
+    width: 80px;
+    padding: 5px;
+}
+
+/* psiaudo klasės seelektoriai */
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background: rgb(222, 38, 139);
+}
+
+input:required:valid:focus{
+    outline: 2px solid #bbe2ef;
+}
+input:required:invalid:focus{
+    outline: 2px solid rgb(222, 38, 139);
+}
+
+select:required:invalid:focus {
+    color: rgb(222, 38, 139);
+}
+
+select:required:valid:focus {
+    color: #bbe2ef;
+}

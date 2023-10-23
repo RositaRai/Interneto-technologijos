@@ -1,0 +1,72 @@
+{
+    "BeautySalon": {
+        "Personnel": {
+            "Administrators": [
+                {
+                    "id": "1",
+                    "FirstName": "Greta",
+                    "LastName": "Jankauskyte",
+                    "PhoneNumber": "+37069511635",
+                    "Email": "unicornbeauty@gmail.com"
+                }
+            ],
+            "Specialists": [
+                {
+                    "id": "1",
+                    "type": "Hairdresser",
+                    "weekends": "true",
+                    "FirstName": "Jolanta",
+                    "LastName": "Petrauskiene",
+                    "PhoneNumber": "+37069546958"
+                },
+                {
+                    "id": "2",
+                    "type": "Eyebrow artist",
+                    "weekends": "false",
+                    "FirstName": "Diana",
+                    "LastName": "Kondrotiene",
+                    "PhoneNumber": "+37061763841"
+                },
+                {
+                    "id": "3",
+                    "type": "Nail artist",
+                    "weekends": "false",
+                    "FirstName": "Kornelija",
+                    "LastName": "Latakaite",
+                    "PhoneNumber": "+37061458267"
+                }
+            ]
+        },
+        "Services": [
+            {
+                "id": "1",
+                "Title": "Moteriskas kirpimas",
+                "SpecialistId": "1",
+                "PriceEur": 15.0,
+                "DurationMin": 60
+            },
+            {
+                "id": "2",
+                "Title": "Dazymas",
+                "SpecialistId": "1",
+                "PriceEur": 60.0,
+                "DurationMin": 150
+            },
+            {
+                "id": "3",
+                "Title": "Antakiu dazymas ir formavimas pincetu",
+                "SpecialistId": "2",
+                "PriceEur": 6.5,
+                "DurationMin": 90
+            },
+            {
+                "id": "4",
+                "Title": "Nagu dizaino mokymai pazengusioms",
+                "SpecialistId": "3",
+                "PriceEur": 150.0,
+                "DurationHours": 6,
+                "Date": "2022-10-29"
+            }
+        ]
+    }
+}

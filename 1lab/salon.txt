@@ -1,0 +1,75 @@
+1.
+/BeautySalon/Personnel/Specialists
+/BeautySalon/Personnel/Specialists/ancestor::*
+/BeautySalon/Personnel/Specialists/descendant::*
+/BeautySalon/Personnel/Specialists/following-sibling::*
+/BeautySalon/Personnel/Specialists/preceding-sibling::*
+/BeautySalon/Personnel/Specialists/following::*
+/BeautySalon/Personnel/Specialists/preceding::*
+/BeautySalon/Personnel/Specialists/attribute::*
+/BeautySalon/Personnel/Specialists/Specialist/attribute::*
+
+2.
+grazina visus paslaugu pavadinimus, kuriuos atlieka pirmasis specialistas
+//Service/SpecialistId[text() = //Specialist[1]/@id]/preceding-sibling::*/text()
+
+3.
+grazina paslaugu skaiciu
+count(//Service)
+
+grazina pirmojo specialisto atliekamu paslaugu skaiciu 
+count(//Service/SpecialistId[text()=//Specialist[1]/@id])
+
+grazina visu paslaugu kainu suma 
+sum(//PriceEur)
+
+4.
+viska verciam i skaicius
+A1 > A2 bent vienas A1 elementas didesnis už bent vieną A2 elementą
+A > s bent vienas A elementas didesnis už s
+A > e bent vienas A elementas didesnis už e paverstą su number()
+A > l number(boolean(A)) > number(l) 
+
+A1 = A2 abu verciam i string
+A = s bent vienas A elementas yra lygus s, A verciam i string
+A = e bent vienas A elementas yra lygus e, A verciam i number
+A = l boolean(A) = l
+
++ daro viska su skaičiais
+
+-------------
+(//PriceEur) > (//DurationMin)    true, nes 60 > 15
+(//DurationMin) < 16              true, nes 15 < 16
+(//Service/SpecialistId) <'2'     true, nes 1 < 2
+(//Service/SpecialistId) < true() false, nes 1 < 1
+
+(//Specialist/FirstName) = (//Specialist/LastName | //Specialist[2]/FirstName)
+(//PriceEur | //DurationMin) = 15.0
+(//Specialist/FirstName) = 'Diana'
+(//Specialist) = true()
+
+(//PriceEur) + (//DurationMin)   =75, nes 15+60, sudedami tik pirmi nariai is aibiu
+(//PriceEur) + '100'             =115, nes 15+100
+(//PriceEur) + 100               =115, nes 15+100
+(//PriceEur) + true()            =16, nes 15+1
+
+5.
+//Service[@id='2']/ancestor::BeautySalon/descendant::Administrator
+
+6.
+aibe ir skaiciu 
+(//PriceEur | //DurationMin) = 15.0
+
+aibe ir eilute
+(//Specialist/FirstName) = 'Diana'
+
+aibe ir logine reiksme
+(//Specialist) = true()
+
+aibe su aibe 
+(//Specialist/FirstName) = (//Specialist/LastName | //Specialist[2]/FirstName)  
+
+7.
+
+(//PriceEur) < (//DurationHours) false
+(//PriceEur) > (//DurationMin)   true

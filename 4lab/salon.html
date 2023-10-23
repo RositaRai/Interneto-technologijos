@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Beauty salon</title>
+    <link rel="stylesheet" href="salon.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper clearfix">
+            <div class="logo">
+                <img src="logo1.png" alt="Unicorn">
+            </div>
+            <div class="h1">
+                <h1>Unicorn beauty salon</h1>
+            </div>
+            <div class="logo">
+                <img src="logo2.png" alt="Unicorn">
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Specialists</a></li>
+            <li><a href="#">Galery</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Registration</h2>
+        <article id="firstArticle">
+            <h3>Registration form</h3>
+            <form name="registrationForm">
+                <fieldset>
+                    <legend>Service registration</legend>
+                    <div class="inputs">
+                        <label for="serviceType">Select service type:</label>
+                        <select id="serviceType">
+                            <option value="0" disabled selected hidden>Select service</option>
+                            <option value="1">Woman haircut</option>
+                            <option value="2">Men haircut</option>
+                            <option value="3">Woman hair coloring</option>
+                            <option value="4">Beard shaving</option>
+                        </select>
+                    </div>
+                    <div class="inputs">
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" placeholder="MM/DD/YYYY">
+                        <span class="error" id="errorMsgDate">Date is not valid.</span>
+                    </div>
+                    <div class="inputs">
+                        <label for="time">Time:</label>
+                        <input type="text" id="hours">
+                        <label for="separator">:</label>
+                        <input type="text" id="mins">
+                        <span class="error" id="errorMsgTime">Time is not valid.</span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Want to get reminder?</legend>
+                    <div class="inputs">
+                        <label for="emailCheckbox">Email:</label>
+                        <input type="checkbox" name="emailCheckbox" id="emailCheckbox">
+                    </div>
+                    <div class="inputs">
+                        <label for="phoneCheckbox">Phone:</label>
+                        <input type="checkbox" name="phoneCheckbox" id="phoneCheckbox">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Confirmation</legend>
+                    <div class="inputs">
+                        <label for="policyCheckbox">Accept our private policy:</label>
+                        <input type="checkbox" name="policyCheckbox" id="policyCheckbox">
+                    </div>
+                    <input type="button" value="Submit" id="submit">
+                    <input type="reset" value="Reset" id="reset">
+                    <span class="error" id="errorMsg"></span>
+                </fieldset>
+            </form>
+        </article>
+        <article id="secondArticle">
+            <h3>Your reservations</h3>
+            <table class="responceTable">
+                <tr>
+                    <th rowspan="2">No.</th>
+                    <th rowspan="2">Date</th>
+                    <th rowspan="2">Time</th>
+                    <th rowspan="2">Service</th>
+                    <th colspan="2">Reminder</th>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+                <tr id="1">
+                    <td>1</td>
+                    <td>02/15/2022</td>
+                    <td>20:00</td>
+                    <td>Woman haircut</td>
+                    <td>true</td>
+                    <td>true</td>
+                </tr>
+            </table>
+            <form name="cancelation">
+                <label for="no">Number of service in table which you want to cancel:</label>
+                <input type="text" id="no">
+                <input type="button" value="Confirm" id="cancel">
+                <span class="error" id="errorMsgNo">Service number not exist.</span>
+            </form>
+        </article>
+    </section>
+
+    <footer>
+        <div class="useful links">
+            <div class="link box">
+                <h4>About Us</h4>
+                <div class="links list">
+                    <ul>
+                        <li><a href="#">Our story</a></li>
+                        <li><a href="#">Terms of use</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="link box">
+                <h4>Contacts</h4>
+                <div class="links list">
+                    <ul>
+                        <li><a href="#">Call us</a></li>
+                        <li><a href="https://mail.google.com/">Email us</a></li>
+                        <li><a href="https://maps.google.com/">Find us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bs:BeautySalon xmlns:bs="BeautySalonNamespace"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="BeautySalonNamespace salon.xsd">
+	<Personnel>
+		<Administrators>
+			<Administrator id="1">
+				<FirstName>Greta</FirstName>
+				<LastName>Jankauskyte</LastName>
+				<PhoneNumber>+37069511635</PhoneNumber>
+				<Email>unicornbeauty@gmail.com</Email>
+				<ManageSpecId>1</ManageSpecId>
+			</Administrator>
+		</Administrators>
+		<Specialists>
+			<Specialist id="1" type="Hairdresser" weekends="true">
+				<FirstName>Jolanta</FirstName>
+				<LastName>Petrauskiene</LastName>
+				<PhoneNumber>+37069546958</PhoneNumber>
+			</Specialist>
+		</Specialists>
+	</Personnel>
+	<Services>
+		<Service id="1">
+			<Title>Moteriskas kirpimas</Title>
+			<SpecialistId>1</SpecialistId>
+			<Price measure="Eur">15</Price>
+			<Duration measure="min">60</Duration>
+		</Service>
+	</Services>
+	<Reviews>
+		<Review>
+			Labai geras aptarnavimas.
+			<Date>2022-11-05</Date>
+			<Rating measure="stars">5</Rating>
+			<Name>Jolanta</Name>
+		</Review>
+	</Reviews>
+</bs:BeautySalon>

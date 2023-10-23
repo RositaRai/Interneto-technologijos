@@ -1,0 +1,132 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "definitions": {
+        "phoneNumber": {
+            "type": "string",
+            "pattern": "[+](370)[0-9]{8}"
+        },
+        "email":{
+            "type": "string",
+            "pattern": "[a-zA-z0-9._]*(@gmail.com)"
+        },
+        "people":{
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "LastName":{
+                    "type": "string"
+                },
+                "PhoneNumber":{
+                    "$ref": "#/definitions/phoneNumber"
+                }
+            },
+            "required":[
+                "id",
+                "FirstName",
+                "LastName",
+                "PhoneNumber"
+            ]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "BeautySalon": {
+            "properties": {
+                "Personnel": {
+                    "type": "object",
+                    "properties": {
+                        "Administrators": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "allOf":[
+                                    {
+                                        "$ref": "#/definitions/people"
+                                    },
+                                    {
+                                        "properties": {
+                                            "Email": {
+                                                "$ref": "#/definitions/email"
+                                            },
+                                            "ManageSpecId": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type" : "integer",
+                                                            "uniqueItems": true
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "Email"
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "Specialists": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "allOf":[
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "Hairdresser",
+                                                            "Eyebrowsdresser",
+                                                            "Beardresser"
+                                                            ]
+                                                    },
+                                                    {
+                                                        "type": "string",
+                                                        "maxLength": 20 
+                                                    }
+                                                ]
+                                            },
+                                            "weekends": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "required": [
+                                            "type",
+                                            "weekends"
+                                        ]
+                                    },
+                                    {
+                                        "$ref": "#/definitions/people"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "Administrators",
+                        "Specialists"
+                    ]
+                }
+            },
+            "required": [
+                "Personnel"
+            ]
+        }
+    },
+    "required": [
+        "BeautySalon"
+    ]
+}      

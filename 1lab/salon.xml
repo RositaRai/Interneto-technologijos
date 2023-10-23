@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BeautySalon xmlns="Unicorn beauty salon">
+    <Personnel>
+        <Administrators>
+            <Administrator id="1">
+                <FirstName>Greta</FirstName>
+                <LastName>Jankauskyte</LastName>
+                <PhoneNumber>+37069511635</PhoneNumber>
+                <Email>unicornbeauty@gmail.com</Email>
+            </Administrator>
+        </Administrators>
+        <Specialists>
+            <Specialist id="1" type="Hairdresser" weekends="true">
+                <FirstName>Jolanta</FirstName>
+                <LastName>Petrauskiene</LastName>
+                <PhoneNumber>+37069546958</PhoneNumber>
+            </Specialist>
+            <Specialist id="2" type="Eyebrow artist" weekends="false">
+                <FirstName>Diana</FirstName>
+                <LastName>Kondrotiene</LastName>
+                <PhoneNumber>+37061763841</PhoneNumber>
+            </Specialist>
+            <Specialist id="3" type="Nail artist" weekends="false">
+                <FirstName>Kornelija</FirstName>
+                <LastName>Latakaite</LastName>
+                <PhoneNumber>+37061458267</PhoneNumber>
+            </Specialist>
+        </Specialists>
+    </Personnel>
+    <Services>
+        <Service id="1">
+            <Title>Moteriskas kirpimas</Title>
+            <SpecialistId>1</SpecialistId>
+            <PriceEur>15.0</PriceEur>
+            <DurationMin>60</DurationMin>
+        </Service>
+        <Service id="2">
+            <Title>Dazymas</Title>
+            <SpecialistId>1</SpecialistId>
+            <PriceEur>60.0</PriceEur>
+            <DurationMin>150</DurationMin>
+        </Service>
+        <Service id="3">
+            <Title>Antakiu dazymas ir formavimas pincetu</Title>
+            <SpecialistId>2</SpecialistId>
+            <PriceEur>6.5</PriceEur>
+            <DurationMin>15</DurationMin>
+        </Service>
+        <Service id="4" xmlns:tr="Group training">
+            <tr:Title>Nagu dizaino mokymai pazengusioms</tr:Title>
+            <tr:SpecialistId>3</tr:SpecialistId>
+            <tr:PriceEur>150.0</tr:PriceEur>
+            <tr:DurationHours>6</tr:DurationHours>
+            <tr:Date>2022-10-28</tr:Date>
+        </Service>
+    </Services>
+</BeautySalon>
